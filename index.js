@@ -1,13 +1,8 @@
-document.addEventListener('keydown', altDownHandler);
-document.addEventListener('keyup', altUpHandler);
 document.addEventListener('click', clickHandler);
 document.addEventListener('mousemove', mousemoveHandler);
 
-let altDown = false;
-
-
-function clickHandler() {
-    if (altDown) {
+function clickHandler(event) {
+    if (event.altKey) {
         console.log('ALT DOWN CLICK')
         document.body.style.backgroundColor = 'YELLOW';
     } else {
@@ -16,26 +11,12 @@ function clickHandler() {
     }
 }
 
-function mousemoveHandler() {
-    if (altDown) {
+function mousemoveHandler(event) {
+    if (event.altKey) {
         console.log('ALT DOWN MOVE')
         document.body.style.backgroundColor = 'BLUE';
     } else {
         console.log('ALT UP MOVE')
         document.body.style.backgroundColor = 'GREEN';
-    }
-}
-
-function altDownHandler(e) {
-    if (e.keyCode === 18) {
-        console.log("ALT DOWN");
-        altDown = true;
-    }
-}
-
-function altUpHandler(e) {
-    if (e.keyCode === 18) {
-        console.log("ALT DOWN");
-        altDown = false;
     }
 }
